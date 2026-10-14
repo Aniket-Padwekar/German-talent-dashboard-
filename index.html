@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Where Germany's national players learned the game</title>
-<meta name="description" content="Which German youth academies and cities produced the national team since 1990? Every club, every player, on one map.">
+<title>Where Germany's pro talent learned the game</title>
+<meta name="description" content="Which German clubs and cities developed the players born in Germany who built careers in Europe's top leagues? Every club, every player, on one map.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,700..900&family=Public+Sans:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="vendor/leaflet.css">
 <link rel="stylesheet" href="assets/style.css?v=1"></head>
 <body>
 <header class="top">
- <div><h1>Where Germany's national players learned the game</h1>
+ <div><h1>Where Germany's pro talent learned the game</h1>
  <p id="lede"></p></div>
  <div class="tools">
-  <label>Born <select id="era" aria-label="Birth years"><option value="all">All players</option><option value="pre80">Before 1980</option><option value="80s">1980 to 1989</option><option value="90">1990 or later</option></select></label>
+  <label>Born <select id="era" aria-label="Birth years"><option value="all">All players</option><option value="85">Born 1985 to 1989</option><option value="90">Born 1990 to 1994</option><option value="95">Born 1995 to 1999</option><option value="00">Born 2000 or later</option></select></label>
   <p class="stamp"><b>Data Last Updated:</b> <span id="updated"></span></p>
  </div>
 </header>
@@ -19,8 +19,9 @@
 <section class="stage" aria-label="Map and academy ranking">
  <div class="mapwrap">
   <div class="mapbar" role="group" aria-label="Map options">
-   <button class="chip" data-grp="de" aria-pressed="true" type="button">Germany internationals</button>
-   <button class="chip" data-grp="oth" aria-pressed="false" type="button">Born in Germany, other nations</button>
+   <button class="chip" data-grp="all" aria-pressed="true" type="button">All players</button>
+   <button class="chip" data-grp="de" aria-pressed="false" type="button">Played for Germany</button>
+   <button class="chip" data-grp="oth" aria-pressed="false" type="button">Not capped by Germany</button>
    <button class="chip" data-view="club" aria-pressed="true" type="button">By club</button>
    <button class="chip" data-view="city" aria-pressed="false" type="button">By city</button>
   </div>
@@ -43,11 +44,12 @@
 <main>
  <section class="ch" id="method"><h2>How this was built</h2>
   <div class="method">
-  <h3>Who is in the data</h3><p>Every man the DFB has used in a senior international since 1990, from the German Wikipedia list of German national players. The second group is players born in Germany who play for another nation (at least five caps, born 1975 or later); it is small and only descriptive. Neither group is ranked, and no rating or score is used.</p>
-  <h3>Which youth club counts</h3><p><b>Last youth club</b> is the German professional club whose youth side the player was in just before turning professional, and gives each player one credit. <b>First pro academy</b> is the first professional club in his youth career. <b>Any academy</b> counts every professional club he passed through, so players count more than once. Amateur clubs are not counted, and neither are moves straight into a club's reserve team (Bode at Werder Bremen, Westermann at Greuther Fürth), which is why some players have no academy.</p>
-  <h3>Where the youth paths come from</h3><p>Youth careers come from English Wikipedia and, for players born from about 1985, the Transfermarkt dataset published by dcaribou. Where both exist they name the same last youth club in 92 of 93 cases, and Transfermarkt's own club hierarchy confirms the club matching for all 98 players with a Transfermarkt youth path. Players born before 1985 rely on Wikipedia alone.</p>
-  <h3>Played abroad</h3><p>Taken from each player's senior career on Wikipedia. Loans count. Reserve teams are ignored. "Other Big-5 country" means a club in England, Spain, Italy or France.</p>
-  <h3>Limits</h3><p>Youth lists on Wikipedia are incomplete, so some players have no academy shown. Differences of one or two players between clubs are within noise. Club pins are home stadiums, not academy grounds.</p></div></section>
+  <h3>Who is in the data</h3><p>Every player born in Germany (Transfermarkt birth country), born 1985 or later, with at least 20 league appearances in the Bundesliga, Premier League, La Liga, Serie A or Ligue 1 between July 2012 and June 2026. That is 513 players. Thirteen are left out because they trained abroad (Nmecha, Schlupp and Soares among them) or no German club could be traced, which leaves 500. 414 have played for Germany; the rest play for Turkey, Poland, Croatia, the USA and other nations, or were never capped. Birth in Germany is the only entry test, and no rating or score is used.</p>
+  <h3>Why not more than 500</h3><p>Germany internationals since 1990 number about 264. Players born in Germany with real Big-5 careers are a larger group, and 500 is what a 20-appearance cut gives. At 10 appearances it is about 600, at 1 appearance over 800. Players born before 1985 are outside the Transfermarkt coverage and are not included.</p>
+  <h3>Which youth club counts</h3><p><b>Last youth club</b> is the German professional club whose youth side the player was in just before turning professional, one credit per player. <b>First pro academy</b> is the first professional club in his youth career. <b>Any academy</b> counts every professional club he passed through. Amateur clubs are not counted. 40 players came up through amateur clubs and signed straight for a pro club; they are credited to that club and marked "Entered pro football at" on the player card.</p>
+  <h3>Where the youth paths come from</h3><p>Youth transfers from the Transfermarkt dataset published by dcaribou, combined with English Wikipedia youth careers. Where both exist they name the same last youth club in 92 of 93 cases, and Transfermarkt's own club hierarchy confirms the club matching for all 98 players checked.</p>
+  <h3>Inside and outside the Bundesliga</h3><p>Counted from league appearances: Bundesliga against the Premier League, La Liga, Serie A and Ligue 1. Other leagues are not in the data. "Other Big-5 league" means at least five appearances in one of those four.</p>
+  <h3>Limits</h3><p>Appearance data starts July 2012, so older careers are cut short. Youth lists are incomplete for some players. Differences of one or two players between clubs are within noise. Club pins are home stadiums, not academy grounds.</p></div></section>
 </main>
 <dialog id="card" aria-label="Player card"><button class="dx" id="cclose" type="button" aria-label="Close">&times;</button><div id="cardbody"></div></dialog>
 <footer><p class="sources"><b>Sources.</b> Roster, careers and youth clubs: German and English Wikipedia and Wikidata (CC BY-SA). Youth paths and birth places for players born from about 1985: Transfermarkt dataset by dcaribou (derived from Transfermarkt.com). Club locations: Wikidata stadium coordinates, rounded. Base map: Esri (Light and Dark Gray Canvas), data &copy; OpenStreetMap contributors and others. Map library: Leaflet. Fonts: Archivo and Public Sans. Personal analytics project, not affiliated with any club, league or data provider. Compiled October 2026.</p><p>Built by Aniket Padwekar.</p></footer>
