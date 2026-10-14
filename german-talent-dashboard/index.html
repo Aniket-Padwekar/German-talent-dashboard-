@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Where Germany's national players learned the game</title>
+<meta name="description" content="Which German youth academies and cities produced the national team since 1990? Every club, every player, on one map.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,700..900&family=Public+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="assets/style.css?v=1"></head>
+<body>
+<header class="top">
+ <div><h1>Where Germany's national players learned the game</h1>
+ <p id="lede"></p></div>
+ <div class="tools">
+  <label>Born <select id="era" aria-label="Birth years"><option value="all">All players</option><option value="pre80">Before 1980</option><option value="80s">1980 to 1989</option><option value="90">1990 or later</option></select></label>
+  <p class="stamp"><b>Data Last Updated:</b> <span id="updated"></span></p>
+ </div>
+</header>
+
+<section class="stage" aria-label="Map and academy ranking">
+ <div class="mapwrap">
+  <div class="mapbar" role="group" aria-label="Map options">
+   <button class="chip" data-grp="de" aria-pressed="true" type="button">Germany internationals</button>
+   <button class="chip" data-grp="oth" aria-pressed="false" type="button">Born in Germany, other nations</button>
+   <button class="chip" data-view="club" aria-pressed="true" type="button">By club</button>
+   <button class="chip" data-view="city" aria-pressed="false" type="button">By city</button>
+  </div>
+  <div id="map" role="application" aria-label="Interactive map of German youth academies"></div>
+  <div class="maplegend" id="legend"></div>
+ </div>
+ <aside class="side">
+  <div class="seg" id="measure" role="group" aria-label="Which youth club counts">
+   <button data-m="last" aria-pressed="true" type="button">Last youth club</button>
+   <button data-m="first" aria-pressed="false" type="button">First pro academy</button>
+   <button data-m="any" aria-pressed="false" type="button">Any academy</button>
+  </div>
+  <p class="hint" id="mhint"></p>
+  <div id="dossier"></div>
+  <ol class="rank" id="rank"></ol>
+  <button class="more" id="moreBtn" type="button" hidden>Show all</button>
+ </aside>
+</section>
+
+<main>
+ <section class="ch" id="method"><h2>How this was built</h2>
+  <div class="method">
+  <h3>Who is in the data</h3><p>Every man the DFB has used in a senior international since 1990, from the German Wikipedia list of German national players. The second group is players born in Germany who play for another nation (at least five caps, born 1975 or later); it is small and only descriptive. Neither group is ranked, and no rating or score is used.</p>
+  <h3>Which youth club counts</h3><p><b>Last youth club</b> is the German professional club whose youth side the player was in just before turning professional, and gives each player one credit. <b>First pro academy</b> is the first professional club in his youth career. <b>Any academy</b> counts every professional club he passed through, so players count more than once. Amateur clubs are not counted, which is why some players have no academy.</p>
+  <h3>Where the youth paths come from</h3><p>Youth careers come from English Wikipedia and, for players born from about 1985, the Transfermarkt dataset published by dcaribou. Where both exist they name the same last youth club in 92 of 93 cases. Players born before 1985 rely on Wikipedia alone.</p>
+  <h3>Played abroad</h3><p>Taken from each player's senior career on Wikipedia. Loans count. Reserve teams are ignored. "Other Big-5 country" means a club in England, Spain, Italy or France.</p>
+  <h3>Limits</h3><p>Youth lists on Wikipedia are incomplete, so some players have no academy shown. Differences of one or two players between clubs are within noise. Club pins are home stadiums, not academy grounds.</p></div></section>
+</main>
+<dialog id="card" aria-label="Player card"><button class="dx" id="cclose" type="button" aria-label="Close">&times;</button><div id="cardbody"></div></dialog>
+<footer><p class="sources"><b>Sources.</b> Roster, careers and youth clubs: German and English Wikipedia and Wikidata (CC BY-SA). Youth paths and birth places for players born from about 1985: Transfermarkt dataset by dcaribou (derived from Transfermarkt.com). Club locations: Wikidata stadium coordinates, rounded. Base map: Esri (Light and Dark Gray Canvas), data &copy; OpenStreetMap contributors and others. Map library: Leaflet. Fonts: Archivo and Public Sans. Personal analytics project, not affiliated with any club, league or data provider. Compiled October 2026.</p><p>Built by Aniket Padwekar.</p></footer>
+<script src="vendor/leaflet.js"></script><script src="assets/data.js?v=1"></script><script src="assets/app.js?v=1"></script>
+</body></html>
